@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.chadifierapp2.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_new_task"
+        android:name="com.example.chadifierapp2.ui.add_task.NewTaskFragment"
+        android:label="New Task"
+        tools:layout="@layout/fragment_add_new_task"
+        />
+
+    <fragment
+        android:id="@+id/navigation_list_prev_tasks"
+        android:name="com.example.chadifierapp2.ui.list_prev_tasks.PreviousTasksListFragment"
+        android:label="Previous Tasks"
+        tools:layout="@layout/fragment_list_recorded_tasks"
+        />
+
+    <fragment
+        android:id="@+id/navigation_user_profile"
+        android:name="com.example.chadifierapp2.ui.user_profile.ProfileFragment"
+        android:label="User Profile"
+        tools:layout="@layout/fragment_profile"
+        />
+
+<!--  others  -->
+
+
+</navigation>
