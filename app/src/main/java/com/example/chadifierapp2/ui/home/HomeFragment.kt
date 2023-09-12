@@ -6,8 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.asLiveData
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.example.chadifierapp2.databinding.FragmentHomeBinding
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
 
@@ -22,16 +29,38 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val profileViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
+
+
+        val homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textHome
-        profileViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+//        val textView: TextView = binding.txtHomeUserLevel
+//        profileViewModel.text.observe(viewLifecycleOwner) {
+//            textView.text = it
+//        }
+
+        val displayChadPoints: TextView = binding.txtHomeUserPoints
+        val displayChadLevel: TextView = binding.txtHomeUserLevel
+        homeViewModel.uiState.asLiveData().observe(viewLifecycleOwner) {
+            displayChadPoints.text = String.format("Amount of Chad Points: ${it.chadPoints}")
+            displayChadLevel.text = String.format("Current Chad Level ${it.chadLevel}")
         }
+
+        val viewModel: HomeViewModel by viewModels()
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                viewModel.uiState.collect {
+//                  update ui elements
+
+                }
+
+            }
+        }
+
+
+
         return root
     }
 
