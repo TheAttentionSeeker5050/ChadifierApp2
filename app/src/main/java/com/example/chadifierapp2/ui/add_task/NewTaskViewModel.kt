@@ -6,8 +6,8 @@ import androidx.lifecycle.ViewModel
 
 class NewTaskViewModel : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is new task Fragment"
-    }
-    val text: LiveData<String> = _text
+//    private val _text = MutableLiveData<String>().apply {
+//        value = "This is new task Fragment"
+//    }
+//    val text: LiveData<String> = _text
 }

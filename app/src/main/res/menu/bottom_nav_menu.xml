@@ -14,11 +14,13 @@
     <item
         android:id="@+id/navigation_list_prev_tasks"
         android:title="Previous Tasks"
+        android:icon="@drawable/baseline_format_list_bulleted_24"
         />
 
     <item
         android:id="@+id/navigation_user_profile"
         android:title="User Profile"
+        android:icon="@drawable/baseline_user_24"
         />
 
 </menu>

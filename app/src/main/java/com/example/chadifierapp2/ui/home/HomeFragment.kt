@@ -1,9 +1,11 @@
 package com.example.chadifierapp2.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -12,8 +14,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
+import com.example.chadifierapp2.R
 import com.example.chadifierapp2.databinding.FragmentHomeBinding
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
@@ -58,6 +61,17 @@ class HomeFragment : Fragment() {
 
             }
         }
+
+
+//        button navigate to add new task
+        val newTaskButton: Button = binding.btnHomeAddNewTask
+        newTaskButton.setOnClickListener{
+//            Log.d("BUTTONS", "Clicked on the new task button")
+            findNavController().navigate(R.id.action_navigation_home_to_navigation_new_task)
+
+        }
+
+
 
 
 

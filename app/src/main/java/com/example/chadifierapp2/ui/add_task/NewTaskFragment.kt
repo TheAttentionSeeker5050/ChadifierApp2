@@ -28,10 +28,10 @@ class NewTaskFragment : Fragment() {
         _binding = FragmentAddNewTaskBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textAddNewTask
-        newTaskViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
+        val textView: TextView = binding.txtAddNewTask
+//        newTaskViewModel.text.observe(viewLifecycleOwner) {
+//            textView.text = it
+//        }
         return root
     }
 
