@@ -12,6 +12,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.chadifierapp2.data.user_profile.UserDataRepository
 import com.example.chadifierapp2.databinding.ActivityMainBinding
 
 
@@ -19,6 +20,13 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
+    //    initiate the repositories
+    private val userDataRepository = UserDataRepository("Nicolas")
+
+//    getter and setters for repositories -----------------------
+    fun getUserDataRepository() : UserDataRepository {
+        return  userDataRepository
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

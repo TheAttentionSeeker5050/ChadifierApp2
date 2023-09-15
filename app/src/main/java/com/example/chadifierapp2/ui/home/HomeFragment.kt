@@ -16,6 +16,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.chadifierapp2.R
+import com.example.chadifierapp2.data.user_profile.UserDataRepository
 import com.example.chadifierapp2.databinding.FragmentHomeBinding
 import kotlinx.coroutines.launch
 
@@ -26,6 +27,8 @@ class HomeFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
