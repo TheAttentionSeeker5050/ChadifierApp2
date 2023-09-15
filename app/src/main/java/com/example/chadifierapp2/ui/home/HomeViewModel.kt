@@ -3,6 +3,8 @@ package com.example.chadifierapp2.ui.home
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.chadifierapp2.MainActivity
+import com.example.chadifierapp2.data.user_profile.UserDataRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -15,16 +17,22 @@ data class HomePageState(
 
 class HomeViewModel : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home / new task Fragment"
-    }
-    val text: LiveData<String> = _text
 
-    private val _uiState = MutableStateFlow(HomePageState())
+
+    private val userDataRepository = UserDataRepository("Nicolas")
+    private val myChadPoints = userDataRepository.getChadPoints()
+    private val myChadLevel = userDataRepository.getChadLevel()
+
+
+
+    private val _uiState = MutableStateFlow(HomePageState(
+        chadPoints = myChadPoints,
+        chadLevel = myChadLevel,
+    ))
     val uiState: StateFlow<HomePageState> = _uiState.asStateFlow()
 
-    val displayChadPoints: String = String.format("Amount of Chad Points: {0}", uiState.value.chadPoints)
-    val displayChadLevel: String = String.format("Current Chad Level {0}", uiState.value.chadLevel)
+
+
 
 
 }

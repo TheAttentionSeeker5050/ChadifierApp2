@@ -42,17 +42,14 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-//        val textView: TextView = binding.txtHomeUserLevel
-//        profileViewModel.text.observe(viewLifecycleOwner) {
-//            textView.text = it
-//        }
-
         val displayChadPoints: TextView = binding.txtHomeUserPoints
         val displayChadLevel: TextView = binding.txtHomeUserLevel
         homeViewModel.uiState.asLiveData().observe(viewLifecycleOwner) {
             displayChadPoints.text = String.format("Amount of Chad Points: ${it.chadPoints}")
             displayChadLevel.text = String.format("Current Chad Level ${it.chadLevel}")
         }
+
+
 
         val viewModel: HomeViewModel by viewModels()
         lifecycleScope.launch {

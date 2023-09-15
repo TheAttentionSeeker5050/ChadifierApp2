@@ -18,7 +18,12 @@ public class UserDataRepository (
     }
 
     fun reduceChadPoints(numPoints: Int) {
-        userData.numChadPoints -= numPoints
+        if (userData.numChadPoints - numPoints >= 0) {
+            userData.numChadPoints -= numPoints
+
+        } else {
+            userData.numChadPoints = 0
+        }
     }
 
     fun fetchRemoteChadPoints() {
@@ -37,7 +42,12 @@ public class UserDataRepository (
     }
 
     fun decreaseChadLevel() {
-        userData.chadLevel -= 1
+        if (userData.chadLevel - 1 >= 0) {
+            userData.chadLevel -= 1
+
+        } else {
+            userData.chadLevel = 0
+        }
     }
 
     fun fetchRemoteChadLevel() {
