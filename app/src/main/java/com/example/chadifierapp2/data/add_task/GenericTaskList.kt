@@ -2,7 +2,7 @@ package com.example.chadifierapp2.data.add_task
 
 
 
-val genericTaskList: ArrayList<GenericTaskModel> = arrayListOf(
+val genericTaskList: Array<GenericTaskModel> = arrayOf(
     GenericTaskModel("Waking up early to reflect on the day ahead", 3, true),
     GenericTaskModel("Practicing negative visualization to prepare for challenges", 3, true),
     GenericTaskModel("Daily exercise to maintain physical and mental strength", 3, true),

@@ -3,10 +3,10 @@ package com.example.chadifierapp2.data.add_task
 class GenericTaskListRepository {
 
 //    declare the task list, which most of the time will be inmutable, but well see
-    private val taskList: ArrayList<GenericTaskModel> = genericTaskList
+    private val taskList: Array<GenericTaskModel> = genericTaskList
 
 //    getter and setters methods
-    fun getAllTasks(): ArrayList<GenericTaskModel> {
+    fun getAllTasks(): Array<GenericTaskModel> {
         return taskList
     }
 

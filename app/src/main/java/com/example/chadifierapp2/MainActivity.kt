@@ -1,6 +1,7 @@
 package com.example.chadifierapp2
 
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
@@ -29,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
 
+        Log.d("THIS_MAIN_ACTIVITY", this.toString())
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
