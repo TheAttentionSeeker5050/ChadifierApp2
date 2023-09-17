@@ -64,7 +64,7 @@
 
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_continue_to_list_prev_tasks"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Continue"

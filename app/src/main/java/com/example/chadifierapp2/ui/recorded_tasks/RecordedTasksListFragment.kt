@@ -23,7 +23,8 @@ class RecordedTasksListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val prevTasksListViewModel =
-            ViewModelProvider(this).get(RecordedTasksListViewModel::class.java)
+            ViewModelProvider(this)
+                .get(RecordedTasksListViewModel::class.java)
 
         _binding = FragmentListRecordedTasksBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -32,6 +33,8 @@ class RecordedTasksListFragment : Fragment() {
         prevTasksListViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
+
+
         return root
     }
 

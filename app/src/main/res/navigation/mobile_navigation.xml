@@ -47,6 +47,9 @@
         tools:layout="@layout/fragment_task_added"
         >
 
+        <action
+            android:id="@+id/action_navigation_task_added_to_navigation_list_prev_tasks"
+            app:destination="@id/navigation_list_prev_tasks" />
     </fragment>
 
 <!--  others  -->
