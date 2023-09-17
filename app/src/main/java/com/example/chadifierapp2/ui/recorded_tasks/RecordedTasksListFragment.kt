@@ -1,4 +1,4 @@
-package com.example.chadifierapp2.ui.list_prev_tasks
+package com.example.chadifierapp2.ui.recorded_tasks
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.chadifierapp2.databinding.FragmentListRecordedTasksBinding
 
-class PreviousTasksListFragment : Fragment() {
+class RecordedTasksListFragment : Fragment() {
 
     private var _binding: FragmentListRecordedTasksBinding? = null
 
@@ -23,7 +23,7 @@ class PreviousTasksListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val prevTasksListViewModel =
-            ViewModelProvider(this).get(PreviousTasksListViewModel::class.java)
+            ViewModelProvider(this).get(RecordedTasksListViewModel::class.java)
 
         _binding = FragmentListRecordedTasksBinding.inflate(inflater, container, false)
         val root: View = binding.root

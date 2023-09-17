@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
@@ -40,6 +41,16 @@ class NewTaskFragment : Fragment() {
         val listItemsAdapter = NewTaskListItemAdapter(newTaskViewModel.taskList, newTaskViewModel.getGenericTaskListRepository())
         recyclerView.adapter = listItemsAdapter
         recyclerView.layoutManager = LinearLayoutManager(this.context, RecyclerView.VERTICAL, false)
+
+//        get the add button
+        val recordTaskButton: Button = binding.btnAddNewTask
+
+//        add click listener to the button
+        recordTaskButton.setOnClickListener {
+            addTaskButtonOnClickAction(
+                newTaskViewModel.getGenericTaskListRepository()
+            )
+        }
 
 
         return root

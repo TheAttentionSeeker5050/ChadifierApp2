@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.list_prev_tasks.PreviousTasksListFragment">
+    tools:context=".ui.recorded_tasks.RecordedTasksListFragment">
 
     <TextView
         android:id="@+id/text_list_rec_tasks"

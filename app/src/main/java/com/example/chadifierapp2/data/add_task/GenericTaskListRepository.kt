@@ -11,24 +11,20 @@ class GenericTaskListRepository {
         return taskList
     }
 
+
     fun getTaskByIndex(indexNum: Int): GenericTaskModel {
-        if (indexNum>0 && taskList.size > indexNum) {
-            return taskList.get(indexNum)
+        val task = taskList.getOrNull(indexNum)
+        if (task != null) {
+            return task
         } else {
-            return GenericTaskModel(
-                "Task not found", 1, false
-            )
+            return GenericTaskModel("Error: Task not found", 1, false)
         }
     }
 
 
 // for the selected task index, set the taskIsSelected to true
     fun setSelectedTaskIndex(indexNum: Int) {
-        if (indexNum>0 && taskList.size > indexNum) {
-            selectedTaskIndex = indexNum
-        } else {
-            selectedTaskIndex = -1
-        }
+        selectedTaskIndex = indexNum
     }
 
     fun getSelectedTaskIndex(): Int {

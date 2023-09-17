@@ -24,7 +24,7 @@
 
     <fragment
         android:id="@+id/navigation_list_prev_tasks"
-        android:name="com.example.chadifierapp2.ui.list_prev_tasks.PreviousTasksListFragment"
+        android:name="com.example.chadifierapp2.ui.recorded_tasks.RecordedTasksListFragment"
         android:label="Previous Tasks"
         tools:layout="@layout/fragment_list_recorded_tasks"
         />

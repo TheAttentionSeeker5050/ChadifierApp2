@@ -48,7 +48,7 @@ class NewTaskListItemAdapter(
         holder.textView.text = taskData[position].taskName
 
 //      add a listener for selecting the task item
-        holder.textView.setOnClickListener {textView ->
+        holder.textView.setOnClickListener {
 //          use function to set the listener action
             onClickAction(holder, position)
 
@@ -68,18 +68,31 @@ class NewTaskListItemAdapter(
 
 //        get the previously selected task index
         val prevSelectedTaskIndex = genericTaskListRepository.getSelectedTaskIndex()
+        Log.d("PrevTaskListItemAdapterIndex", "prevSelectedTaskIndex: $prevSelectedTaskIndex")
+        Log.d("NewTaskListItemAdapterIndex", "position: $position")
+
+        if (prevSelectedTaskIndex == position) {
+            return
+        }
 
 //        remove the style from the previously selected item
-        if (prevSelectedTaskIndex != -1 && prevSelectedTaskIndex != position) {
+        if (prevSelectedTaskIndex != -1) {
+
+
 //            get the previous view holder by position
+//            escape if null pointer exception
             val previousSelectedTaskView = (holder.itemView.parent as RecyclerView)
-                .findViewHolderForAdapterPosition(prevSelectedTaskIndex)!!
+                .findViewHolderForLayoutPosition(prevSelectedTaskIndex)!!
                 .itemView.findViewById<TextView>(R.id.txt_new_task_item)
 
-//            set the background to white and text color to black
+
+
+//          set the background to white and text color to black
             previousSelectedTaskView.setBackgroundResource(R.color.white)
             previousSelectedTaskView.setTextColor(Color.BLACK)
         }
+
+
 
 //        set the selected task index to the current position
         genericTaskListRepository.setSelectedTaskIndex(position)
