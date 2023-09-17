@@ -20,7 +20,11 @@
         android:name="com.example.chadifierapp2.ui.add_task.NewTaskFragment"
         android:label="New Task"
         tools:layout="@layout/fragment_add_new_task"
-        />
+        >
+        <action
+            android:id="@+id/action_navigation_new_task_to_navigation_task_added"
+            app:destination="@id/navigation_task_added" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_list_prev_tasks"
@@ -35,6 +39,15 @@
         android:label="User Profile"
         tools:layout="@layout/fragment_profile"
         />
+
+    <fragment
+        android:id="@+id/navigation_task_added"
+        android:name="com.example.chadifierapp2.ui.task_added.TaskAddedFragment"
+        android:label="Task Added"
+        tools:layout="@layout/fragment_task_added"
+        >
+
+    </fragment>
 
 <!--  others  -->
 
