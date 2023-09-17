@@ -4,4 +4,5 @@ data class GenericTaskModel (
     val taskName: String,
     val taskCompletionMultiplier: Int,
     val taskIsChad: Boolean,
+    val taskIsSelected: Boolean = false,
 )
