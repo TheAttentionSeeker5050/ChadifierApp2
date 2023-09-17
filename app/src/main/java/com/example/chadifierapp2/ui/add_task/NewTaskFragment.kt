@@ -29,6 +29,7 @@ class NewTaskFragment : Fragment() {
         val newTaskViewModel =
             ViewModelProvider(this).get(NewTaskViewModel::class.java)
 
+
         _binding = FragmentAddNewTaskBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
