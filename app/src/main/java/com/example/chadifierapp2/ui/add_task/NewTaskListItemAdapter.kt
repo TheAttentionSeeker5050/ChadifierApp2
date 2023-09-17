@@ -8,10 +8,12 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.chadifierapp2.R
+import com.example.chadifierapp2.data.add_task.GenericTaskListRepository
 import com.example.chadifierapp2.data.add_task.GenericTaskModel
 
 class NewTaskListItemAdapter(
-    private var taskData: Array<GenericTaskModel>
+    private var taskData: Array<GenericTaskModel>,
+    private var genericTaskListRepository: GenericTaskListRepository,
 ) : RecyclerView.Adapter<NewTaskListItemAdapter.ViewHolder>() {
 
     /**
@@ -19,7 +21,6 @@ class NewTaskListItemAdapter(
      * (custom ViewHolder)
      */
 
-    private var selectedTaskIndex: Int = -1
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 //        we will reference the text item in the list item blueprint
@@ -35,7 +36,7 @@ class NewTaskListItemAdapter(
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.add_new_task_list_item, parent, false)
 
-        Log.d("INFLATE_VIEW_HOLDER", view.toString())
+
         return ViewHolder(view)
     }
 
@@ -53,11 +54,6 @@ class NewTaskListItemAdapter(
 
         }
 
-//        holder.textView.text = "TEXT"
-        Log.d("OUTPUT", taskData[position].taskName)
-        Log.d("UI", holder.textView.toString())
-        Log.d("UI_TEXT", holder.textView.text.toString())
-
     }
 
     // Return the size of your dataset (invoked by the layout manager)
@@ -70,26 +66,27 @@ class NewTaskListItemAdapter(
         holder.textView.setBackgroundResource(R.color.purple_500)
         holder.textView.setTextColor(Color.WHITE)
 
+//        get the previously selected task index
+        val prevSelectedTaskIndex = genericTaskListRepository.getSelectedTaskIndex()
+
 //        remove the style from the previously selected item
-        if (selectedTaskIndex != -1 && selectedTaskIndex != position) {
+        if (prevSelectedTaskIndex != -1 && prevSelectedTaskIndex != position) {
 //            get the previous view holder by position
             val previousSelectedTaskView = (holder.itemView.parent as RecyclerView)
-                .findViewHolderForAdapterPosition(selectedTaskIndex)!!
+                .findViewHolderForAdapterPosition(prevSelectedTaskIndex)!!
                 .itemView.findViewById<TextView>(R.id.txt_new_task_item)
 
+//            set the background to white and text color to black
             previousSelectedTaskView.setBackgroundResource(R.color.white)
             previousSelectedTaskView.setTextColor(Color.BLACK)
         }
 
 //        set the selected task index to the current position
-        selectedTaskIndex = position
+        genericTaskListRepository.setSelectedTaskIndex(position)
 
     }
 
-//    getter for the selected task index
-    fun getSelectedTaskIndex(): Int {
-        return selectedTaskIndex
-    }
+
 
 
 }

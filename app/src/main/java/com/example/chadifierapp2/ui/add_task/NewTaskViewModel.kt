@@ -17,6 +17,10 @@ class NewTaskViewModel : ViewModel() {
     val taskList: Array<GenericTaskModel> =
         genericTaskListRepository.getAllTasks()
 
+    fun getGenericTaskListRepository(): GenericTaskListRepository {
+        return genericTaskListRepository
+    }
+
 
 
 }

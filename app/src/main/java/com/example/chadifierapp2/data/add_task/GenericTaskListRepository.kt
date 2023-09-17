@@ -4,6 +4,7 @@ class GenericTaskListRepository {
 
 //    declare the task list, which most of the time will be inmutable, but well see
     private val taskList: Array<GenericTaskModel> = genericTaskList
+    private var selectedTaskIndex: Int = -1
 
 //    getter and setters methods
     fun getAllTasks(): Array<GenericTaskModel> {
@@ -18,6 +19,20 @@ class GenericTaskListRepository {
                 "Task not found", 1, false
             )
         }
+    }
+
+
+// for the selected task index, set the taskIsSelected to true
+    fun setSelectedTaskIndex(indexNum: Int) {
+        if (indexNum>0 && taskList.size > indexNum) {
+            selectedTaskIndex = indexNum
+        } else {
+            selectedTaskIndex = -1
+        }
+    }
+
+    fun getSelectedTaskIndex(): Int {
+        return selectedTaskIndex
     }
 
 //    other methods

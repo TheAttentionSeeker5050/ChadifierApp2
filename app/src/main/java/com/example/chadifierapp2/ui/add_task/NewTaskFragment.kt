@@ -36,17 +36,11 @@ class NewTaskFragment : Fragment() {
         val recyclerView: RecyclerView = binding.rvRecyclerView
 
         // populate the recycler view elements using adapter
-        val listItemsAdapter = NewTaskListItemAdapter(newTaskViewModel.taskList)
+        val listItemsAdapter = NewTaskListItemAdapter(newTaskViewModel.taskList, newTaskViewModel.getGenericTaskListRepository())
         recyclerView.adapter = listItemsAdapter
         recyclerView.layoutManager = LinearLayoutManager(this.context, RecyclerView.VERTICAL, false)
-//        Log.d("THIS_FRAGMENT", this.toString())
-//        Log.d("ADAPTER", recyclerView.adapter.toString())
-//        Log.d("NUMBER_OF_TASKS", newTaskViewModel.taskList.size.toString())
-//        Log.d("OUTPUT", "the list of tasks" + newTaskViewModel.taskList.toString())
-//        val textView: TextView = binding.txtAddNewTask
-//        newTaskViewModel.taskList.observe(viewLifecycleOwner) {
-//            textView.text = it
-//        }
+
+
         return root
     }
 
