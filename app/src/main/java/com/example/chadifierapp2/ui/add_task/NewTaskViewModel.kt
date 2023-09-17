@@ -7,6 +7,9 @@ import com.example.chadifierapp2.data.add_task.GenericTaskModel
 
 class NewTaskViewModel : ViewModel() {
 
+    val uiState: Any
+        get() = taskList
+
     private val genericTaskListRepository: GenericTaskListRepository = GenericTaskListRepository()
 
     val taskList: Array<GenericTaskModel> =

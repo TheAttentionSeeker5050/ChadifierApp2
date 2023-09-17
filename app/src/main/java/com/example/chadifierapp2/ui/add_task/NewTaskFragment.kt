@@ -9,10 +9,15 @@ import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.chadifierapp2.databinding.FragmentAddNewTaskBinding
+import kotlinx.coroutines.launch
 
 class NewTaskFragment : Fragment() {
 
@@ -44,6 +49,11 @@ class NewTaskFragment : Fragment() {
 
 //        get the add button
         val recordTaskButton: Button = binding.btnAddNewTask
+
+        val viewModel: NewTaskViewModel by viewModels()
+
+
+
 
 //        add click listener to the button
         recordTaskButton.setOnClickListener {

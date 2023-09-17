@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.example.chadifierapp2.databinding.FragmentTaskAddedBinding
 
 //create a fragment for the task added page
@@ -14,8 +15,6 @@ class TaskAddedFragment : Fragment() {
 
     val binding get() = _binding!!
 
-//    the view model
-    private lateinit var taskAddedViewModel: TaskAddedViewModel
 
 //    override the fragment methods
     override fun onCreateView(
@@ -23,6 +22,9 @@ class TaskAddedFragment : Fragment() {
     container: ViewGroup?,
     savedInstanceState: Bundle?
     ): View {
+
+        val taskAddedViewModel = ViewModelProvider(this)
+            .get(TaskAddedViewModel::class.java)
 //        inflate the layout for this fragment
         _binding = FragmentTaskAddedBinding.inflate(inflater, container, false)
         val root: View = binding.root
