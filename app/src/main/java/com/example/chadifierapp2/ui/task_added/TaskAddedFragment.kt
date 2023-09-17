@@ -1,6 +1,8 @@
 package com.example.chadifierapp2.ui.task_added
 
+import android.icu.text.MessagePattern.ArgType
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +11,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.chadifierapp2.R
 import com.example.chadifierapp2.databinding.FragmentTaskAddedBinding
+import com.example.chadifierapp2.ui.add_task.NewTaskFragment
+import com.example.chadifierapp2.ui.add_task.NewTaskViewModel
 
 //create a fragment for the task added page
 class TaskAddedFragment : Fragment() {
@@ -27,8 +31,18 @@ class TaskAddedFragment : Fragment() {
     savedInstanceState: Bundle?
     ): View {
 
-        val taskAddedViewModel = ViewModelProvider(this)
-            .get(TaskAddedViewModel::class.java)
+
+
+//    receive argument task index from the bundle on previous page
+        val taskIndex = arguments?.getInt("taskIndex")
+//        Log.d("TaskAddedFragmentTaskIndex", "taskIndex: $taskIndex")
+
+//    using the selected task, add the task to the view model using the GenericTaskListRepository
+        if (taskIndex != null) {
+
+        }
+
+
 
 //        inflate the layout for this fragment
         _binding = FragmentTaskAddedBinding.inflate(inflater, container, false)

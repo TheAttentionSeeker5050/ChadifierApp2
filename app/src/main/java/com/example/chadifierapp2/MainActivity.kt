@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import android.widget.TextView
+import androidx.activity.viewModels
 import androidx.appcompat.widget.Toolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -13,8 +14,8 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.example.chadifierapp2.data.user_profile.UserDataRepository
 import com.example.chadifierapp2.databinding.ActivityMainBinding
+import com.example.chadifierapp2.ui.recorded_tasks.RecordedTasksListViewModel
 
 
 class MainActivity : AppCompatActivity() {
@@ -22,7 +23,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     //    initiate the repositories
-    val userDataRepository = UserDataRepository("Nicolas")
+    private val recordedTasksViewModel: RecordedTasksListViewModel by viewModels()
 
 //    getter and setters for repositories -----------------------
 

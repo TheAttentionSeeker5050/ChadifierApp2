@@ -8,11 +8,14 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavType
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.chadifierapp2.R
+import com.example.chadifierapp2.data.add_task.GenericTaskModel
 import com.example.chadifierapp2.databinding.FragmentAddNewTaskBinding
+import java.io.Serializable
 
 class NewTaskFragment : Fragment() {
 
@@ -63,9 +66,10 @@ class NewTaskFragment : Fragment() {
 
 
                 //        navigate to the next fragment
-                //        next fragment is task added fragment
-                findNavController().navigate(R.id.action_navigation_new_task_to_navigation_task_added)
-
+                //        next fragment is task added fragment, and bundle up the task index as argument
+                val bundle = Bundle()
+                bundle.putInt("taskIndex", selectedTaskIndex)
+                findNavController().navigate(R.id.action_navigation_new_task_to_navigation_task_added, bundle)
 
             }
 

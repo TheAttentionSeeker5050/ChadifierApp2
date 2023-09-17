@@ -12,7 +12,7 @@ class GenericTaskListRepository {
     }
 
 
-    fun getTaskByIndex(indexNum: Int): GenericTaskModel {
+    fun getTaskByIndex(indexNum: Int = selectedTaskIndex): GenericTaskModel {
         val task = taskList.getOrNull(indexNum)
         if (task != null) {
             return task
