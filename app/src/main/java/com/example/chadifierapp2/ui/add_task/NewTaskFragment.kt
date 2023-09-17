@@ -10,11 +10,8 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.chadifierapp2.R
 import com.example.chadifierapp2.databinding.FragmentAddNewTaskBinding
 
 class NewTaskFragment : Fragment() {
@@ -50,25 +47,9 @@ class NewTaskFragment : Fragment() {
 
 //        add click listener to the button
         recordTaskButton.setOnClickListener {
-//            addTaskButtonOnClickAction(
-//                newTaskViewModel.getGenericTaskListRepository()
-//            )
-
-//    get the selected task index
-            val selectedTaskIndex = newTaskViewModel.getGenericTaskListRepository().getSelectedTaskIndex()
-
-//    if the selected task index is not -1, perform add action
-            if (selectedTaskIndex != -1) {
-                val taskSelected = newTaskViewModel.getGenericTaskListRepository().getTaskByIndex(selectedTaskIndex)
-                Log.i("NewTaskFragment", "Task selected: ${taskSelected.taskName}")
-
-
-//        navigate to the next fragment
-//        next fragment is task added fragment
-                findNavController().navigate(R.id.action_navigation_new_task_to_navigation_task_added)
-
-
-            }
+            addTaskButtonOnClickAction(
+                newTaskViewModel.getGenericTaskListRepository()
+            )
         }
 
 
