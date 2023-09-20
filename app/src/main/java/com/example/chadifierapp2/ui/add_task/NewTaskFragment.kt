@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavType
 import androidx.navigation.fragment.findNavController
@@ -30,9 +31,9 @@ class NewTaskFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val newTaskViewModel =
-            ViewModelProvider(this).get(NewTaskViewModel::class.java)
 
+//        get the view model from the main activity
+        val newTaskViewModel : NewTaskViewModel by activityViewModels()
 
         _binding = FragmentAddNewTaskBinding.inflate(inflater, container, false)
         val root: View = binding.root

@@ -46,11 +46,14 @@
         android:label="Task Added"
         tools:layout="@layout/fragment_task_added"
         >
-
         <action
             android:id="@+id/action_navigation_task_added_to_navigation_list_prev_tasks"
-            app:destination="@id/navigation_list_prev_tasks" />
-    </fragment>
+            app:destination="@id/navigation_list_prev_tasks"
+            app:popUpTo="@id/navigation_home"
+            app:popUpToInclusive="true"
+            />
+
+        </fragment>
 
 <!--  others  -->
 

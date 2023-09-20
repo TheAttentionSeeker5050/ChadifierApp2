@@ -31,6 +31,10 @@ class RecordedTasksDataRepository (
         recordedTasksData.removeAt(index)
     }
 
+    fun getRecordedTasksData() : MutableList<RecordedTasksDataModel> {
+        return recordedTasksData
+    }
+
 
 //    other methods to handle the recorded tasks data ------------------------------------------------
     fun fetchRemoteRecordedTasks() {

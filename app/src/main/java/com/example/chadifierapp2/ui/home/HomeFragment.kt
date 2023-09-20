@@ -36,6 +36,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
+        findNavController().popBackStack(R.id.navigation_home, false)
 
         val homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
 
@@ -48,6 +49,7 @@ class HomeFragment : Fragment() {
             displayChadPoints.text = String.format("Amount of Chad Points: ${it.chadPoints}")
             displayChadLevel.text = String.format("Current Chad Level ${it.chadLevel}")
         }
+
 
 
 

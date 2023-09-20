@@ -15,7 +15,9 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.chadifierapp2.databinding.ActivityMainBinding
+import com.example.chadifierapp2.ui.add_task.NewTaskViewModel
 import com.example.chadifierapp2.ui.recorded_tasks.RecordedTasksListViewModel
+import com.example.chadifierapp2.ui.user_profile.ProfileViewModel
 
 
 class MainActivity : AppCompatActivity() {
@@ -24,6 +26,8 @@ class MainActivity : AppCompatActivity() {
 
     //    initiate the repositories
     private val recordedTasksViewModel: RecordedTasksListViewModel by viewModels()
+    private val userProfileViewModel: ProfileViewModel by viewModels()
+    private val newTaskViewModel: NewTaskViewModel by viewModels()
 
 //    getter and setters for repositories -----------------------
 
@@ -48,7 +52,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_home,
                 R.id.navigation_new_task,
                 R.id.navigation_list_prev_tasks,
-                R.id.navigation_user_profile
+                R.id.navigation_user_profile,
+                R.id.navigation_task_added,
             )
         )
 
