@@ -13,7 +13,7 @@
         the points earned, the current level and a continue button
 -->
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/txt_task_added_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Task Added"
@@ -30,17 +30,17 @@
         android:padding="15dp"
         android:orientation="vertical"
 
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintBottom_toTopOf="@+id/btn_continue_to_list_prev_tasks"
+        app:layout_constraintTop_toBottomOf="@+id/txt_task_added_title"
         tools:layout_editor_absoluteX="12dp"
 
         >
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/txt_points_earned"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Points Earned: 10"
+
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -50,10 +50,10 @@
             />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/txt_current_level"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Current Level: 1"
+
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"

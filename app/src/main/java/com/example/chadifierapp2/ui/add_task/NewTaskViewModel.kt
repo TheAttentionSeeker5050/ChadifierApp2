@@ -19,6 +19,9 @@ class NewTaskViewModel : ViewModel() {
         return genericTaskListRepository
     }
 
+    fun getCurrentTask(): GenericTaskModel {
+        return genericTaskListRepository.getTaskByIndex()
+    }
 
 
 }

@@ -68,7 +68,6 @@ class HomeFragment : Fragment() {
 //        button navigate to add new task
         val newTaskButton: Button = binding.btnHomeAddNewTask
         newTaskButton.setOnClickListener{
-//            Log.d("BUTTONS", "Clicked on the new task button")
             findNavController().navigate(R.id.action_navigation_home_to_navigation_new_task)
 
         }

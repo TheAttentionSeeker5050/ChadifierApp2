@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
@@ -28,40 +29,41 @@ class TaskAddedFragment : Fragment() {
 //    the view model
     private lateinit var taskAddedViewModel: TaskAddedViewModel
 
+    //        get the view models from the main activity
+    private val newTaskViewModel : NewTaskViewModel by activityViewModels()
+    private val recordedTasksListViewModel : RecordedTasksListViewModel by activityViewModels()
+
 //    override the fragment methods
     override fun onCreateView(
     inflater: LayoutInflater,
     container: ViewGroup?,
     savedInstanceState: Bundle?
     ): View {
+        super.onCreateView(inflater, container, savedInstanceState)
 
-//        get the view models from the main activity
-    val newTaskViewModel : NewTaskViewModel by activityViewModels()
-    val recordedTasksListViewModel : RecordedTasksListViewModel by activityViewModels()
+//        get the arguments passed from the previous fragment
 
 
-//    receive argument task index from the bundle on previous page
-        val taskIndex = arguments?.getInt("taskIndex")
-//        Log.d("TaskAddedFragmentTaskIndex", "taskIndex: $taskIndex")
-
-//    using the selected task, add the task to the view model using the GenericTaskListRepository
-        if (taskIndex != null) {
-//          search the task by index and add this task to the recorded tasks list
-            val task = newTaskViewModel.getGenericTaskListRepository().getTaskByIndex()
-//            to get the points is (multiplier * 100) * abs (1-random) - if chad is true, then add the points, else subtract the points
-            val points = ((task.taskCompletionMultiplier * 100) * Math.abs(1 - Math.random()) * if (task.taskIsChad) 1 else -1)
-            val pointsRounded = Math.round(points).toInt()
-            val recordedTaskDataObj : RecordedTasksDataModel = RecordedTasksDataModel(task, pointsRounded, task.taskIsChad)
-
-//            add the task to the recorded tasks list
-            recordedTasksListViewModel.getRecordedTasksListRepository().addRecordedTask(recordedTaskDataObj)
-        }
-
+        val recordedTaskRepository = recordedTasksListViewModel
+            .getRecordedTasksListRepository()
 
 
 //        inflate the layout for this fragment
         _binding = FragmentTaskAddedBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+//    display the results in the layout
+//    get the element in the Fragment by id
+        var msgPointsEarned = binding.txtPointsEarned
+        var msgChadLevel = binding.txtCurrentLevel
+
+//        get task index from bundle
+
+
+//    change the contents of the text views
+        msgPointsEarned.text = "Points Earned: "+ recordedTaskRepository.getRecordedTasksData().last().pointsEarned
+        msgChadLevel.text = "Chad Level: " +  23
+
 
 //    finding the button to continue to the next page
         val continueButton = binding.btnContinueToListPrevTasks
@@ -81,4 +83,6 @@ class TaskAddedFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+
 }

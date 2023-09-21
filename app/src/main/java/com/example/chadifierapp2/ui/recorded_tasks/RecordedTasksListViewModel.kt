@@ -25,9 +25,7 @@ class RecordedTasksListViewModel : ViewModel() {
 
 
 
-    fun setRecordedTaskElement(recordedTaskElement: RecordedTasksDataModel) {
-        this.recordedTaskElement = recordedTaskElement
-    }
+
 
 //    other methods
 
