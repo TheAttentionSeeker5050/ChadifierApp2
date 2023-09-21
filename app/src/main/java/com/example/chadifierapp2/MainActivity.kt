@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
     private val recordedTasksViewModel: RecordedTasksListViewModel by viewModels()
     private val userProfileViewModel: ProfileViewModel by viewModels()
     private val newTaskViewModel: NewTaskViewModel by viewModels()
+    private val taskAddedViewModel: NewTaskViewModel by viewModels()
 
 //    getter and setters for repositories -----------------------
 

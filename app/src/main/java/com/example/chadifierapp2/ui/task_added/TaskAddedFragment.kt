@@ -18,6 +18,7 @@ import com.example.chadifierapp2.databinding.FragmentTaskAddedBinding
 import com.example.chadifierapp2.ui.add_task.NewTaskFragment
 import com.example.chadifierapp2.ui.add_task.NewTaskViewModel
 import com.example.chadifierapp2.ui.recorded_tasks.RecordedTasksListViewModel
+import com.example.chadifierapp2.ui.user_profile.ProfileViewModel
 
 //create a fragment for the task added page
 class TaskAddedFragment : Fragment() {
@@ -26,12 +27,14 @@ class TaskAddedFragment : Fragment() {
 
     val binding get() = _binding!!
 
-//    the view model
-    private lateinit var taskAddedViewModel: TaskAddedViewModel
+
 
     //        get the view models from the main activity
     private val newTaskViewModel : NewTaskViewModel by activityViewModels()
     private val recordedTasksListViewModel : RecordedTasksListViewModel by activityViewModels()
+    private val userProfileViewModel : ProfileViewModel by activityViewModels()
+    private val taskAddedViewModel : TaskAddedViewModel by activityViewModels()
+
 
 //    override the fragment methods
     override fun onCreateView(
@@ -40,6 +43,7 @@ class TaskAddedFragment : Fragment() {
     savedInstanceState: Bundle?
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
+
 
 //        get the arguments passed from the previous fragment
 
@@ -57,12 +61,15 @@ class TaskAddedFragment : Fragment() {
         var msgPointsEarned = binding.txtPointsEarned
         var msgChadLevel = binding.txtCurrentLevel
 
-//        get task index from bundle
 
+//    userProfileViewModel.addChadPoints(recordedTaskRepository.getRecordedTasksData().last().pointsEarned)
+        userProfileViewModel.addChadPoints(taskAddedViewModel.getPointsEarned())
+        Log.d("TaskAddedFragment", "Points Earned: "+ taskAddedViewModel.getPointsEarned().toString())
 
 //    change the contents of the text views
-        msgPointsEarned.text = "Points Earned: "+ recordedTaskRepository.getRecordedTasksData().last().pointsEarned
-        msgChadLevel.text = "Chad Level: " +  23
+//        msgPointsEarned.text = "Points Earned: "+ recordedTaskRepository.getRecordedTasksData().last().pointsEarned
+        msgPointsEarned.text = "Points Earned: "+ taskAddedViewModel.getPointsEarned().toString()
+        msgChadLevel.text = "Chad Level: " +  userProfileViewModel.getUserLevel().toString()
 
 
 //    finding the button to continue to the next page

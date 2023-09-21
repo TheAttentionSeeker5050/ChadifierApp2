@@ -15,6 +15,9 @@ public class UserDataRepository (
     }
     fun addChadPoints(numPoints: Int) {
         userData.numChadPoints += numPoints
+
+//        check the level
+        checkUserLevel()
     }
 
     fun reduceChadPoints(numPoints: Int) {
@@ -24,6 +27,49 @@ public class UserDataRepository (
         } else {
             userData.numChadPoints = 0
         }
+
+//        check the level
+        checkUserLevel()
+    }
+
+//    change level setters
+    fun levelUp() {
+        userData.chadLevel += 1
+    }
+
+    fun levelDown() {
+        if (userData.chadLevel - 1 >= 0) {
+            userData.chadLevel -= 1
+
+        } else {
+            userData.chadLevel = 0
+        }
+    }
+
+
+
+    fun checkUserLevel() {
+//        find the level in the user data level list
+        if (userData.chadLevel < 0) {
+            return
+        }
+
+        if (userData.chadLevel > 49) {
+            return
+        }
+
+        val nextChadLevelPoints = userDataLevelList[userData.chadLevel].minPoints
+
+        if (userData.numChadPoints > nextChadLevelPoints) {
+            levelUp()
+        } else if (userData.numChadPoints < nextChadLevelPoints) {
+            levelDown()
+        }
+
+    }
+
+    fun getUserLevel() : Int {
+        return userData.chadLevel
     }
 
     fun fetchRemoteChadPoints() {

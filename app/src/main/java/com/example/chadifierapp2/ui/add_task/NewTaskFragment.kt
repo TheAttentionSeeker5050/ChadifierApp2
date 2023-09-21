@@ -18,6 +18,7 @@ import com.example.chadifierapp2.data.add_task.GenericTaskModel
 import com.example.chadifierapp2.data.recorded_tasks.RecordedTasksDataModel
 import com.example.chadifierapp2.databinding.FragmentAddNewTaskBinding
 import com.example.chadifierapp2.ui.recorded_tasks.RecordedTasksListViewModel
+import com.example.chadifierapp2.ui.task_added.TaskAddedViewModel
 import java.io.Serializable
 
 class NewTaskFragment : Fragment() {
@@ -30,6 +31,7 @@ class NewTaskFragment : Fragment() {
     // Declare ViewModels here to make them accessible throughout the fragment
     private val newTaskViewModel: NewTaskViewModel by activityViewModels()
     private val recordedTasksListViewModel: RecordedTasksListViewModel by activityViewModels()
+    private val taskAddedViewModel: TaskAddedViewModel by activityViewModels()
 
 
     override fun onCreateView(
@@ -75,7 +77,15 @@ class NewTaskFragment : Fragment() {
 //                get the new task view model
                 val newTaskViewModel : NewTaskViewModel by activityViewModels()
 
+//                get the points earned
                 val pointsEarned = calculatePoints(taskSelected)
+                Log.i("NewTaskFragment", "Points earned: $pointsEarned")
+
+//                save the points into the task added view model
+                taskAddedViewModel.setPointsEarned(pointsEarned)
+
+                Log.i("NewTaskFragment", "Points earned from ViewModel: ${taskAddedViewModel.getPointsEarned()}")
+
 
 //                build recorded task data object
                 val recordedTaskDataObj : RecordedTasksDataModel =
@@ -86,13 +96,9 @@ class NewTaskFragment : Fragment() {
                 repo.addRecordedTask(recordedTaskDataObj)
 
 
-                //        navigate to the next fragment
-                //        next fragment is task added fragment, and bundle up the task index as argument
-                val bundle = Bundle()
-                bundle.putInt("taskIndex", selectedTaskIndex)
 
                 findNavController()
-                    .navigate(R.id.action_navigation_new_task_to_navigation_task_added, bundle)
+                    .navigate(R.id.action_navigation_new_task_to_navigation_task_added)
 
             }
 
