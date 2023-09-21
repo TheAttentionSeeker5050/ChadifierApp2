@@ -62,7 +62,8 @@ public class UserDataRepository (
 
         if (userData.numChadPoints > nextChadLevelPoints) {
             levelUp()
-        } else if (userData.numChadPoints < nextChadLevelPoints) {
+        }
+        else if (userData.numChadPoints < nextChadLevelPoints) {
             levelDown()
         }
 
@@ -80,29 +81,6 @@ public class UserDataRepository (
 
     }
 
-    fun getChadLevel() : Int{
-        return  userData.chadLevel
-    }
-    fun increaseChadLevel() {
-        userData.chadLevel += 1
-    }
-
-    fun decreaseChadLevel() {
-        if (userData.chadLevel - 1 >= 0) {
-            userData.chadLevel -= 1
-
-        } else {
-            userData.chadLevel = 0
-        }
-    }
-
-    fun fetchRemoteChadLevel() {
-
-    }
-
-    fun pullRemoteChadLevel() {
-
-    }
 
 
 }

@@ -25,9 +25,6 @@ class ProfileViewModel : ViewModel() {
         userDataRepository.addChadPoints(numPoints)
     }
 
-    fun reduceChadPoints(numPoints: Int) {
-        userDataRepository.reduceChadPoints(numPoints)
-    }
 
     fun getUserLevel(): Int {
         return userDataRepository.getUserLevel()

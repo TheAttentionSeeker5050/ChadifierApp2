@@ -72,29 +72,22 @@ class NewTaskFragment : Fragment() {
             if (selectedTaskIndex != -1) {
                 val taskSelected = newTaskViewModel.getGenericTaskListRepository()
                     .getTaskByIndex(selectedTaskIndex)
-                Log.i("NewTaskFragment", "Task selected: ${taskSelected.taskName}")
 
-//                get the new task view model
-                val newTaskViewModel : NewTaskViewModel by activityViewModels()
 
 //                get the points earned
                 val pointsEarned = calculatePoints(taskSelected)
-                Log.i("NewTaskFragment", "Points earned: $pointsEarned")
 
 //                save the points into the task added view model
                 taskAddedViewModel.setPointsEarned(pointsEarned)
-
-                Log.i("NewTaskFragment", "Points earned from ViewModel: ${taskAddedViewModel.getPointsEarned()}")
 
 
 //                build recorded task data object
                 val recordedTaskDataObj : RecordedTasksDataModel =
                     RecordedTasksDataModel(taskSelected, pointsEarned, taskSelected.taskIsChad)
 
-                val repo = recordedTasksListViewModel.getRecordedTasksListRepository()
+                val recordedTaskRepository = recordedTasksListViewModel.getRecordedTasksListRepository()
 //                add the task to the recorded tasks list
-                repo.addRecordedTask(recordedTaskDataObj)
-
+                recordedTaskRepository.addRecordedTask(recordedTaskDataObj)
 
 
                 findNavController()
