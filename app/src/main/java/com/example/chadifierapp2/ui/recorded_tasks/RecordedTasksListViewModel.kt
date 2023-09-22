@@ -22,6 +22,10 @@ class RecordedTasksListViewModel : ViewModel() {
         return recordedTasksListRepository
     }
 
+    fun getRecordedTaskData(): MutableList<RecordedTasksDataModel> {
+        return recordedTasksListRepository.getRecordedTasksData()
+    }
+
 
 
 
