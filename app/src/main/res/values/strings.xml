@@ -7,6 +7,8 @@
     <string name="label_points_earned">Points earned: </string>
     <string name="label_chad_level">Chad level: </string>
     <string name="label_total_points">Total points: </string>
+    <string name="recorded_tasks_deleted">Recorded tasks deleted</string>
+    <string name="recorded_tasks_confirm_delete">Deleting last week\'s tasks. Are you sure?</string>
 
 
 </resources>

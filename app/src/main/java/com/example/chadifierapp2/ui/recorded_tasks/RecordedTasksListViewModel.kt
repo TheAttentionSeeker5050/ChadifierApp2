@@ -30,6 +30,10 @@ class RecordedTasksListViewModel : ViewModel() {
         recordedTasksListRepository.addRecordedTask(recordedTask)
     }
 
+    fun deleteLastWeekEntries() {
+        recordedTasksListRepository.deleteLastWeekEntries()
+    }
+
 //    delete or edit task
     fun deleteRecordedTask(index: Int) {
         recordedTasksListRepository.removeRecordedTaskByIndex(index)
