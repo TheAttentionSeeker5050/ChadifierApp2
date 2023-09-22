@@ -6,9 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingHorizontal="8dp"
-    android:paddingVertical="12dp"
+    android:paddingTop="12dp"
     android:id="@+id/lo_recorded_task_item__root"
+
     >
+
 
 <!--    the max limit of characters in this text view should be 35
         followed by ... if necessary -->
@@ -37,26 +39,12 @@
         android:text="155 points - 1/1/2020"
         android:textColor="@color/black"
         android:textSize="17sp"
+        android:layout_marginBottom="10dp"
 
 
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_border"
         app:layout_constraintStart_toStartOf="parent" />
 
-<!--    </LinearLayout>-->
-
-
-<!--    <LinearLayout-->
-<!--        android:id="@+id/linearLayout2"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:clickable="true"-->
-<!--        android:orientation="horizontal"-->
-<!--        android:padding="5dp"-->
-<!--        android:background="@color/white"-->
-
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="@+id/linearLayout"-->
-<!--        app:layout_constraintTop_toTopOf="parent">-->
 
     <ImageButton
         android:id="@+id/btn_recorded_task_item__edit"
@@ -88,7 +76,18 @@
 
         />
 
-<!--    </LinearLayout>-->
+
+    <View
+        android:id="@+id/bottom_border"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#000000"
+        android:layout_marginVertical="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        />
 
 
 

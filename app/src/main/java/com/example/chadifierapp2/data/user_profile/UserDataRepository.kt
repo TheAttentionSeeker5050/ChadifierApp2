@@ -63,9 +63,6 @@ public class UserDataRepository (
         if (userData.numChadPoints > nextChadLevelPoints) {
             levelUp()
         }
-        else if (userData.numChadPoints < nextChadLevelPoints) {
-            levelDown()
-        }
 
     }
 
