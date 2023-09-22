@@ -58,8 +58,8 @@ class HomeFragment : Fragment() {
         homeViewModel.uiState.asLiveData().observe(viewLifecycleOwner) {
 
             displayUsername.text = String.format("${it.username}")
-            displayChadPoints.text = String.format("Amount of Chad Points: ${it.chadPoints}")
-            displayChadLevel.text = String.format("Current Chad Level ${it.chadLevel}")
+            displayChadPoints.text = String.format("${resources.getString(R.string.label_total_points)} ${it.chadPoints}")
+            displayChadLevel.text = String.format("${resources.getString(R.string.label_chad_level)} ${it.chadLevel}")
         }
 
 

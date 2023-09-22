@@ -64,14 +64,13 @@ class NewTaskFragment : Fragment() {
 
 
             //    get the selected task index
-            val selectedTaskIndex = newTaskViewModel.getGenericTaskListRepository()
-                .getSelectedTaskIndex()
+            val selectedTaskIndex = newTaskViewModel.getSelectedTaskIndex()
 
 
             //    if the selected task index is not -1, perform add action
             if (selectedTaskIndex != -1) {
-                val taskSelected = newTaskViewModel.getGenericTaskListRepository()
-                    .getTaskByIndex(selectedTaskIndex)
+//                get the task selected
+                val taskSelected = newTaskViewModel.getTaskByIndex(selectedTaskIndex)
 
 
 //                get the points earned
@@ -85,9 +84,9 @@ class NewTaskFragment : Fragment() {
                 val recordedTaskDataObj : RecordedTasksDataModel =
                     RecordedTasksDataModel(taskSelected, pointsEarned, taskSelected.taskIsChad)
 
-                val recordedTaskRepository = recordedTasksListViewModel.getRecordedTasksListRepository()
-//                add the task to the recorded tasks list
-                recordedTaskRepository.addRecordedTask(recordedTaskDataObj)
+
+//                add the recorded task to the recorded task list view model
+                recordedTasksListViewModel.addRecordedTask(recordedTaskDataObj)
 
 
                 findNavController()
@@ -105,10 +104,6 @@ class NewTaskFragment : Fragment() {
         return Math.round((task.taskCompletionMultiplier * 100) * Math.abs(1 - Math.random()) * if (task.taskIsChad) 1 else -1).toInt()
     }
 
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//
-//    }
 
     override fun onDestroyView() {
         super.onDestroyView()

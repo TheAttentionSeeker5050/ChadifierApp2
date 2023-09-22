@@ -36,9 +36,18 @@ class RecordedTasksListFragment : Fragment() {
         _binding = FragmentListRecordedTasksBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-//        val textView: TextView = binding.textListRecTasks
-////        display the number of task recorded into the text view
-//        textView.text = "You have recorded ${recordedTasksListViewModel.getRecordedTasksListRepository().getRecordedTasksData().size} tasks"
+        val noRecordedTasksText = binding.recordedTaskNoDataMsg
+
+//        check if there is data in the list to no data text view
+        if (recordedTasksListViewModel.getRecordedTaskData().isEmpty()) {
+            noRecordedTasksText.visibility = View.VISIBLE
+        } else {
+            noRecordedTasksText.visibility = View.GONE
+        }
+
+////        add text to the no data text view
+//        noRecordedTasksText.text = "No recorded tasks yet."
+
 
 //        get the recycler list in the layout that will hold the items
         val taskListRecyclerView : RecyclerView = binding.rvRecordedTasksList

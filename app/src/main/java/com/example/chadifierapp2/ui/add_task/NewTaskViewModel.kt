@@ -23,5 +23,19 @@ class NewTaskViewModel : ViewModel() {
         return genericTaskListRepository.getTaskByIndex()
     }
 
+    fun getTaskByIndex(indexNum: Int): GenericTaskModel {
+        return genericTaskListRepository.getTaskByIndex(indexNum)
+    }
+
+    fun setSelectedTaskIndex(indexNum: Int) {
+        genericTaskListRepository.setSelectedTaskIndex(indexNum)
+    }
+
+    fun getSelectedTaskIndex(): Int {
+        return genericTaskListRepository.getSelectedTaskIndex()
+    }
+
+
+
 
 }

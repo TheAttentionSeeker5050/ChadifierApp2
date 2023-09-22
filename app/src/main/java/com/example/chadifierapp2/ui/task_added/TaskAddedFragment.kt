@@ -66,11 +66,11 @@ class TaskAddedFragment : Fragment() {
 //    userProfileViewModel.addChadPoints(recordedTaskRepository.getRecordedTasksData().last().pointsEarned)
         userProfileViewModel.addChadPoints(taskAddedViewModel.getPointsEarned())
 
-//    change the contents of the text views
+//    change the contents of the text views using string resources
 //        msgPointsEarned.text = "Points Earned: "+ recordedTaskRepository.getRecordedTasksData().last().pointsEarned
-        msgPointsEarned.text = "Points Earned: "+ taskAddedViewModel.getPointsEarned().toString()
-        msgChadLevel.text = "Chad Level: " +  userProfileViewModel.getUserLevel().toString()
-        msgTotalPoints.text = "Total Points: " + userProfileViewModel.getTotalChadPoints().toString()
+        msgPointsEarned.text = resources.getString(R.string.label_points_earned) + taskAddedViewModel.getPointsEarned().toString()
+        msgChadLevel.text = resources.getString(R.string.label_chad_level) + userProfileViewModel.getUserLevel().toString()
+        msgTotalPoints.text = resources.getString(R.string.label_total_points) + userProfileViewModel.getTotalChadPoints().toString()
 
 //    finding the button to continue to the next page
         val continueButton = binding.btnContinueToListPrevTasks

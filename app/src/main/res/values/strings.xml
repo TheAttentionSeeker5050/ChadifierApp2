@@ -3,4 +3,10 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="title_recorded_tasks_no_data_msg">No recorded tasks yet</string>
+    <string name="label_points_earned">Points earned: </string>
+    <string name="label_chad_level">Chad level: </string>
+    <string name="label_total_points">Total points: </string>
+
+
 </resources>
