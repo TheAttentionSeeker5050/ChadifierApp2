@@ -1,7 +1,6 @@
 package com.example.chadifierapp2.ui.home
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,10 +16,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.chadifierapp2.R
-import com.example.chadifierapp2.data.user_profile.UserDataRepository
 import com.example.chadifierapp2.databinding.FragmentHomeBinding
 import com.example.chadifierapp2.ui.user_profile.ProfileViewModel
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
@@ -74,9 +71,9 @@ class HomeFragment : Fragment() {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.uiState.collect {
 //                  update ui elements
-                    displayChadPoints.text = String.format("Amount of Chad Points: ${it.chadPoints}")
-                    displayChadLevel.text = String.format("Current Chad Level ${it.chadLevel}")
                     displayUsername.text = String.format("${it.username}")
+                    displayChadPoints.text = String.format("${resources.getString(R.string.label_total_points)} ${it.chadPoints}")
+                    displayChadLevel.text = String.format("${resources.getString(R.string.label_chad_level)} ${it.chadLevel}")
                 }
 
             }

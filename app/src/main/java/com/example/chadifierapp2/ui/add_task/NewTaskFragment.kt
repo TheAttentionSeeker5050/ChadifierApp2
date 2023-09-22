@@ -8,8 +8,6 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.NavType
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -19,7 +17,6 @@ import com.example.chadifierapp2.data.recorded_tasks.RecordedTasksDataModel
 import com.example.chadifierapp2.databinding.FragmentAddNewTaskBinding
 import com.example.chadifierapp2.ui.recorded_tasks.RecordedTasksListViewModel
 import com.example.chadifierapp2.ui.task_added.TaskAddedViewModel
-import java.io.Serializable
 
 class NewTaskFragment : Fragment() {
 
@@ -95,7 +92,6 @@ class NewTaskFragment : Fragment() {
             }
 
         }
-
 
         return root
     }

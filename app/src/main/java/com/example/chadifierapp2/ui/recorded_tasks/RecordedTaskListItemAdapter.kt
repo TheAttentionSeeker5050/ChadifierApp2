@@ -12,11 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.chadifierapp2.R
 import com.example.chadifierapp2.data.recorded_tasks.RecordedTasksDataModel
 import com.example.chadifierapp2.utils.FormattingTools
-import java.text.SimpleDateFormat
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
-import kotlin.time.Duration.Companion.hours
-import kotlin.time.Duration.Companion.minutes
+
 
 class RecordedTaskListItemAdapter(
     private var recordedTaskData: MutableList<RecordedTasksDataModel>,
@@ -59,7 +55,7 @@ class RecordedTaskListItemAdapter(
 //        use formatting tools to format the date
         val formattedDate : String = FormattingTools.myFormatDateTime(recordedTaskData[position].date)
 
-//        val formattedDate : String = recordedTaskData[position].date.toString()
+
         holder.taskItemNameView.text = recordedTaskData[position].genericTask.taskName
         holder.taskSubTextView.text = "${recordedTaskData[position].pointsEarned} points on ${formattedDate}"
 

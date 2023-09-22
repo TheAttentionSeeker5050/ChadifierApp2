@@ -45,9 +45,6 @@ class RecordedTasksListFragment : Fragment() {
             noRecordedTasksText.visibility = View.GONE
         }
 
-////        add text to the no data text view
-//        noRecordedTasksText.text = "No recorded tasks yet."
-
 
 //        get the recycler list in the layout that will hold the items
         val taskListRecyclerView : RecyclerView = binding.rvRecordedTasksList

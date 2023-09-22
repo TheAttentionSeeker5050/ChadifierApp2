@@ -10,7 +10,6 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
 import com.example.chadifierapp2.R
 import com.example.chadifierapp2.databinding.FragmentProfileBinding
 import com.example.chadifierapp2.ui.recorded_tasks.RecordedTasksListViewModel
@@ -50,7 +49,6 @@ class ProfileFragment : Fragment() {
             confirmMsgTextView.visibility = View.VISIBLE
             confirmDeleteLWEntriesLayout.visibility = View.VISIBLE
 
-            Log.d("ProfileFragment", "Clicked on delete last week entries button")
         }
 
 //        if the user clicks on the yes button, delete the last week entries

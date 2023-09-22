@@ -1,21 +1,16 @@
 package com.example.chadifierapp2.ui.task_added
 
-import android.icu.text.MessagePattern.ArgType
+
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.chadifierapp2.R
-import com.example.chadifierapp2.data.recorded_tasks.RecordedTasksDataModel
 import com.example.chadifierapp2.databinding.FragmentTaskAddedBinding
-import com.example.chadifierapp2.ui.add_task.NewTaskFragment
 import com.example.chadifierapp2.ui.add_task.NewTaskViewModel
 import com.example.chadifierapp2.ui.recorded_tasks.RecordedTasksListViewModel
 import com.example.chadifierapp2.ui.user_profile.ProfileViewModel
@@ -45,9 +40,6 @@ class TaskAddedFragment : Fragment() {
         super.onCreateView(inflater, container, savedInstanceState)
 
 
-//        get the arguments passed from the previous fragment
-
-
         val recordedTaskRepository = recordedTasksListViewModel
             .getRecordedTasksListRepository()
 
@@ -62,12 +54,10 @@ class TaskAddedFragment : Fragment() {
         var msgChadLevel = binding.txtCurrentLevel
         var msgTotalPoints = binding.txtTotalPoints
 
-
-//    userProfileViewModel.addChadPoints(recordedTaskRepository.getRecordedTasksData().last().pointsEarned)
+//    add the points earned to the total points
         userProfileViewModel.addChadPoints(taskAddedViewModel.getPointsEarned())
 
 //    change the contents of the text views using string resources
-//        msgPointsEarned.text = "Points Earned: "+ recordedTaskRepository.getRecordedTasksData().last().pointsEarned
         msgPointsEarned.text = resources.getString(R.string.label_points_earned) + taskAddedViewModel.getPointsEarned().toString()
         msgChadLevel.text = resources.getString(R.string.label_chad_level) + userProfileViewModel.getUserLevel().toString()
         msgTotalPoints.text = resources.getString(R.string.label_total_points) + userProfileViewModel.getTotalChadPoints().toString()
