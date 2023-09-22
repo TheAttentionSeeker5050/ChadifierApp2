@@ -2,7 +2,7 @@
 
 ## Description
 
-Chadifier App is a habit-tracking application designed to help users cultivate healthy habits and maintain a balanced lifestyle.
+Chadifier App is a habit-tracking application designed to help users cultivate healthy habits and maintain a balanced lifestyle. For the moment data persistence (local or remote) not implemented.
 
 ## Features
 
