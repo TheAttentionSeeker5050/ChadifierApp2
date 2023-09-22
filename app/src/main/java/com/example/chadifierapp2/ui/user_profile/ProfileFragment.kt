@@ -18,16 +18,19 @@ class ProfileFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
+    private val profileViewModel: ProfileViewModel by activityViewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val profileViewModel : ProfileViewModel by activityViewModels()
 
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        val userTextView: TextView = binding.txtProfileUserName
+        userTextView.text = profileViewModel.getUserName()
 
         return root
     }
