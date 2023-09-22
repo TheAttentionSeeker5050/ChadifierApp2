@@ -24,7 +24,7 @@ Chadifier App is a habit-tracking application designed to help users cultivate h
 
 1. **Clone the Repository**:
     ```
-    git clone https://github.com/YourGitHubUsername/ChadifierApp.git
+    git clone https://github.com/TheAttentionSeeker5050/ChadifierApp2.git
     ```
 2. **Open in Android Studio**:
     - Open Android Studio and select `Open an existing Android Studio project`.
