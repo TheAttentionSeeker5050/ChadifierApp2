@@ -26,6 +26,15 @@ class RecordedTasksListViewModel : ViewModel() {
         return recordedTasksListRepository.getRecordedTasksData()
     }
 
+//    delete or edit task
+    fun deleteRecordedTask(index: Int) {
+        recordedTasksListRepository.removeRecordedTaskByIndex(index)
+    }
+
+    fun editRecordedTask(task: RecordedTasksDataModel, index: Int) {
+        recordedTasksListRepository.editTaskByIndex(task, index)
+    }
+
 
 
 

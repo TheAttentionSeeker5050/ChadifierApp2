@@ -35,6 +35,10 @@ class RecordedTasksDataRepository (
         return recordedTasksData
     }
 
+    fun editTaskByIndex(newRecordedTask: RecordedTasksDataModel, index: Int = 0) {
+        recordedTasksData[index] = newRecordedTask
+    }
+
 
 //    other methods to handle the recorded tasks data ------------------------------------------------
     fun fetchRemoteRecordedTasks() {

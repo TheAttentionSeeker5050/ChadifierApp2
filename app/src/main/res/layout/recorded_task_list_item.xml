@@ -7,6 +7,7 @@
     android:layout_height="wrap_content"
     android:paddingHorizontal="8dp"
     android:paddingVertical="12dp"
+    android:id="@+id/lo_recorded_task_item__root"
     >
 
 <!--    the max limit of characters in this text view should be 35
