@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.add_task.NewTaskFragment"
     android:id="@+id/lo_add_new_task"
+    android:layout_marginVertical="15dp"
     >
 
     <TextView

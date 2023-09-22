@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingHorizontal="8dp"
-    android:paddingTop="12dp"
+    android:layout_marginVertical="10dp"
     android:id="@+id/lo_recorded_task_item__root"
 
     >
@@ -80,9 +80,8 @@
     <View
         android:id="@+id/bottom_border"
         android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:background="#000000"
-        android:layout_marginVertical="10dp"
+        android:layout_height="2dp"
+        android:background="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
