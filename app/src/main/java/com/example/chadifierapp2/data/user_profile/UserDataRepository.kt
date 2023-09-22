@@ -37,15 +37,6 @@ public class UserDataRepository (
         userData.chadLevel += 1
     }
 
-    fun levelDown() {
-        if (userData.chadLevel - 1 >= 0) {
-            userData.chadLevel -= 1
-
-        } else {
-            userData.chadLevel = 0
-        }
-    }
-
 
 
     fun checkUserLevel() {
