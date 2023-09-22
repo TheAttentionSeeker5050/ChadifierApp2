@@ -16,10 +16,6 @@ class NewTaskListItemAdapter(
     private var genericTaskListRepository: GenericTaskListRepository,
 ) : RecyclerView.Adapter<NewTaskListItemAdapter.ViewHolder>() {
 
-    /**
-     * Provide a reference to the type of views that you are using
-     * (custom ViewHolder)
-     */
 
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -68,8 +64,6 @@ class NewTaskListItemAdapter(
 
 //        get the previously selected task index
         val prevSelectedTaskIndex = genericTaskListRepository.getSelectedTaskIndex()
-        Log.d("PrevTaskListItemAdapterIndex", "prevSelectedTaskIndex: $prevSelectedTaskIndex")
-        Log.d("NewTaskListItemAdapterIndex", "position: $position")
 
         if (prevSelectedTaskIndex == position) {
             return
